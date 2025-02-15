@@ -36,7 +36,9 @@ st.markdown('''
                 text-align: center;
                 color: white;
                 font-weight: bold;
-                font-size: 150px;
+                font-size: 200px;
+                margin: 0;
+                padding: 0;
             }
             
             .blue{
@@ -45,7 +47,9 @@ st.markdown('''
                 text-align: center;
                 font-weight: bold;
                 color: white;
-                font-size: 150px;
+                font-size: 200px;
+                margin: 0;
+                padding: 0;
             }
             
             
