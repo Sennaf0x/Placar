@@ -17,6 +17,7 @@ st.markdown('''
             
             .e1obcldf2{
                 background-color: yellow;
+                color: green;
                 font-weight: bold;
             }
             
