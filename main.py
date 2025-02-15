@@ -4,6 +4,10 @@ st.set_page_config(layout="wide")
 
 st.markdown('''
             <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
             
             .stMarkdown{
                 margin-bottom: 50px;
