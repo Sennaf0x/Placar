@@ -31,7 +31,7 @@ st.markdown('''
                 text-align: center;
                 color: white;
                 font-weight: bold;
-                font-size: 250px;
+                font-size: 150px;
             }
             
             .blue{
@@ -40,7 +40,7 @@ st.markdown('''
                 text-align: center;
                 font-weight: bold;
                 color: white;
-                font-size: 250px;
+                font-size: 150px;
             }
             
             
