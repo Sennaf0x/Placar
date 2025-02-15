@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.set_page_config(layout="wide")
+
 st.markdown('''
             <style>
             
@@ -13,17 +15,32 @@ st.markdown('''
                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             }
             
+            .e1obcldf2{
+                background-color: yellow;
+                font-weight: bold;
+            }
+            
+            .e1obcldf2:hover{
+                background-color: green;
+                color: yellow;    
+            }
+            
             .red{
+                border-radius: 20px;
                 background-color: red;
                 text-align: center;
                 color: white;
-                font-size: 100px;
+                font-weight: bold;
+                font-size: 250px;
             }
+            
             .blue{
+                border-radius: 20px;
                 background-color: blue;
                 text-align: center;
+                font-weight: bold;
                 color: white;
-                font-size: 100px;
+                font-size: 250px;
             }
             
             
@@ -54,7 +71,7 @@ with col1:
     with col3:
         mais = st.button("Acrescentar", use_container_width=True)    
     with col4:
-        menos = st.button("Retirar", use_container_width=True)
+        menos = st.button("Retirar", use_container_width=True, type="secondary")
         
     if mais == True:
         st.session_state.placar1 += 1
@@ -71,7 +88,7 @@ with col2:
     with col5:
         mais = st.button(" Acrescentar", use_container_width=True)    
     with col6:
-        menos = st.button(" Retirar", use_container_width=True)
+        menos = st.button(" Retirar", use_container_width=True, type="secondary")
         
     if mais == True:
         st.session_state.placar2 += 1
