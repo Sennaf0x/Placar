@@ -16,21 +16,23 @@ st.markdown('''
             .titulo{
                 border-radius: 20px;
                 text-align: center;
-                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            }
+                box-shadow: rgba(127,255,0, 0.35) 0px 5px 15px;
+                }
             
             .e1obcldf2{
                 border-radius: 20px;
                 background-color: blue;
+                border: solid yellow;
                 text-align: center;
                 color: white;
                 font-weight: bold;
                 margin: 0;
                 padding: 0;
+                box-shadow: rgba(0,191,255) 0px 25px 50px -15px;
             }
             
             .e1obcldf2 p{
-                font-size: 200px;
+                font-size: 175px;
                 margin: 0;
             }
             
@@ -45,13 +47,15 @@ st.markdown('''
                 text-align: center;
                 color: white;
                 font-weight: bold;
-                font-size: 200px;
+                font-size: 175px;
                 margin: 0;
                 padding: 0;
+                border: solid yellow;
+                box-shadow: rgba(255,69,0) 0px 25px 50px -15px;
             }
             
             .e1obcldf3 p{
-                font-size: 200px;
+                font-size: 175px;
                 margin: 0;
             }
             
@@ -59,28 +63,10 @@ st.markdown('''
                 color: white;
             }
             
-            .red{
-                border-radius: 20px;
-                background-color: red;
-                text-align: center;
-                color: white;
-                font-weight: bold;
-                font-size: 200px;
-                margin: 0;
-                padding: 0;
+            .enj44ev0{
+                margin: 50px;
+                box-shadow: rgba(127,255,0, 0.35) 0px 5px 15px;
             }
-            
-            .blue{
-                border-radius: 20px;
-                background-color: blue;
-                text-align: center;
-                font-weight: bold;
-                color: white;
-                font-size: 200px;
-                margin: 0;
-                padding: 0;
-            }
-            
             
             </style>''',unsafe_allow_html=True)
 
@@ -96,6 +82,9 @@ if not "ponto1" in st.session_state:
 
 if not "ponto2" in st.session_state:
     st.session_state.ponto2 = False
+
+if not "expandido" in st.session_state:
+    st.session_state.expandido = False
 
 def placar(index):
     if index != 0:
@@ -125,7 +114,7 @@ with col2:
         placar(2)
         st.rerun()
 
-with st.expander("Retirar ponto"):
+with st.expander("Retirar ponto", expanded=st.session_state.expandido):
     with st.form("Retirar ponto"):
         time = st.radio("Escolha o time para reirar pontos",
                         ["Time 1","Time 2"],
@@ -134,7 +123,7 @@ with st.expander("Retirar ponto"):
         
         escolha = st.form_submit_button("Retirar")
         if escolha:
-            if time == "Time 1":
+            if time == "Time 1":    
                 st.session_state.placar1 -= 1
                 st.rerun()
             elif time == "Time 2":
