@@ -20,14 +20,43 @@ st.markdown('''
             }
             
             .e1obcldf2{
-                background-color: yellow;
-                color: green;
+                border-radius: 20px;
+                background-color: blue;
+                text-align: center;
+                color: white;
                 font-weight: bold;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .e1obcldf2 p{
+                font-size: 200px;
+                margin: 0;
             }
             
             .e1obcldf2:hover{
-                background-color: green;
-                color: yellow;    
+                color: white;
+                background-color: blue;
+            }
+            
+            .e1obcldf3{
+                border-radius: 20px;
+                background-color: red;
+                text-align: center;
+                color: white;
+                font-weight: bold;
+                font-size: 200px;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .e1obcldf3 p{
+                font-size: 200px;
+                margin: 0;
+            }
+            
+            .e1obcldf3:hover{
+                color: white;
             }
             
             .red{
@@ -62,48 +91,52 @@ if not "placar1" in st.session_state:
 if not "placar2" in st.session_state:
     st.session_state.placar2 = 0
 
-if not "mais" in st.session_state:
-    st.session_state.mais = 0
+if not "ponto1" in st.session_state:
+    st.session_state.ponto1 = False
 
-if not "menos" in st.session_state:
-    st.session_state.menos = 0
+if not "ponto2" in st.session_state:
+    st.session_state.ponto2 = False
 
+def placar(index):
+    if index != 0:
+        st.session_state[f"placar{index}"] += 1
+        print(f"{st.session_state[f"placar{index}"]}")
 
+def retirar(index):
+    if index != 0:
+        st.session_state[f"placar{index}"] -= 1
+        print(f"{st.session_state[f"placar{index}"]}")
 
 st.markdown("<h1 class='titulo'>PLACAR</h1>", unsafe_allow_html=True)
+
 
 col1, col2 = st.columns(2)
 
 with col1:
-    col3, col4 = st.columns(2)
+    ponto1 = st.button(f"{st.session_state.placar1}", use_container_width=True, type="secondary")
     
-    with col3:
-        mais = st.button("Acrescentar", use_container_width=True)    
-    with col4:
-        menos = st.button("Retirar", use_container_width=True, type="secondary")
+    if ponto1:
+        placar(1)
+        st.rerun()
         
-    if mais == True:
-        st.session_state.placar1 += 1
-        print(f"{st.session_state.placar1}")
-    if menos == True:
-        st.session_state.placar1 -= 1
-        print(f"{st.session_state.placar1}")
-    
-    st.markdown(f"<div class='red'>{st.session_state.placar1}</div>",unsafe_allow_html=True)
-    
 with col2:
-    col5, col6 = st.columns(2)
-    
-    with col5:
-        mais = st.button(" Acrescentar", use_container_width=True)    
-    with col6:
-        menos = st.button(" Retirar", use_container_width=True, type="secondary")
+    ponto2 = st.button(f"{st.session_state.placar2}", use_container_width=True, type="tertiary")
+    if ponto2:
+        placar(2)
+        st.rerun()
+
+with st.expander("Retirar ponto"):
+    with st.form("Retirar ponto"):
+        time = st.radio("Escolha o time para reirar pontos",
+                        ["Time 1","Time 2"],
+                        index=None
+                        )
         
-    if mais == True:
-        st.session_state.placar2 += 1
-        print(f"{st.session_state.placar2}")
-    if menos == True:
-        st.session_state.placar2 -= 1
-        print(f"{st.session_state.placar2}")
-    
-    st.markdown(f"<div class='blue'>{st.session_state.placar2}</div>",unsafe_allow_html=True)
+        escolha = st.form_submit_button("Retirar")
+        if escolha:
+            if time == "Time 1":
+                st.session_state.placar1 -= 1
+                st.rerun()
+            elif time == "Time 2":
+                st.session_state.placar2 -= 1
+                st.rerun()
