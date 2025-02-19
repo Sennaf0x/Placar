@@ -253,7 +253,6 @@ with st.container():
             new_data = pd.DataFrame(dados, columns=['Time 1','Time 2','Time 3','Time 4'])
                 
             st.success("Times salvos com sucesso!")
-            new_data
             #Atualizando a planilha
             conn.update(spreadsheet=url, data=new_data)
-            #st.rerun()
+            st.rerun()
