@@ -71,19 +71,19 @@ st.markdown('''
             </style>''',unsafe_allow_html=True)
 
 
-if not "placar1" in st.session_state:
+if "placar1" not in st.session_state:
     st.session_state.placar1 = 0
 
-if not "placar2" in st.session_state:
+if "placar2" not in st.session_state:
     st.session_state.placar2 = 0
 
-if not "ponto1" in st.session_state:
+if "ponto1" not in st.session_state:
     st.session_state.ponto1 = False
 
-if not "ponto2" in st.session_state:
+if "ponto2" not in st.session_state:
     st.session_state.ponto2 = False
 
-if not "expandido" in st.session_state:
+if "expandido" not in st.session_state:
     st.session_state.expandido = False
 
 def placar(index):
